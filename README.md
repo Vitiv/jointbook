@@ -1,5 +1,4 @@
-# jointbook
-Telegram bookstore-bot for Minter network users
+# Jointbook Telegram bookstore-bot for Minter network users
 
 Телеграм-бот книжного магазина.
 Возможности:
