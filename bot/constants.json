@@ -1,0 +1,10 @@
+{
+  "MY_BOOKS": "MyBooks",
+  "ALL_BOOKS": "AllBooks",
+  "AUTHOR_BOOKS": "AuthorBooks",
+  "AUTHOR_LIST": "AuthorList",
+  "methods": {
+    "send": "send",
+    "edit": "edit"
+  }
+}

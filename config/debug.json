@@ -1,0 +1,38 @@
+{
+  "token": "YOUR_TOKEN",
+  "dbConfig": {
+    "dbName": "YOUR_DB_NAME",
+    "userName": "YOUR_DB_USERNAME",
+    "password": "YOUR_DB_PASSWORD",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "JWT": {
+    "secret": "testSecret",
+    "expiresInSeconds": 2678400
+  },
+  "credentials": {
+    "login": "YOUR_ADMIN_USERNAME",
+    "password": "YOUR_ADMIN_PASSWORD"
+  },
+  "port": 80,
+  "languages": ["en", "ru"],
+  "amountBooksPerPageTelegram": 1,
+  "amountBooksPerPageFront": 6,
+  "amountAuthorsPerPageTelegram": 2,
+  "amountAuthorsPerPageFront": 10,
+  "qiwi": {
+    "secretKey": "YOUR_QIWI_SECRET_KEY",
+    "publicKey": "YOUR_QIWI_PUBLIC_KEY"
+  },
+  "mainWalletMnemonic": "12_WORDS_SEED_PHRASE",
+  "bipRate": 1,
+  "bitsCost": {
+    "1": 1,
+    "5": 5,
+    "10": 10
+  },
+  "billDurationMillis": 1800000,
+  "qiwiErrorDurationMillisSmallerThenBillDuration": 300000,
+  "ownerTelegramId": 111
+}

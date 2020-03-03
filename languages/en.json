@@ -1,0 +1,69 @@
+{
+  "settings": {
+    "code": "EN 🇺🇸",
+    "settingsMessage": "Settings"
+  },
+  "generalButtons": {
+    "startMessage": "✋Hello!",
+    "keyboardButtons": {
+      "books": "Books",
+      "authors": "Authors",
+      "finances": "Finances",
+      "aboutJointBook": "AboutJointBook",
+      "settings": "Settings",
+      "lastBook": "It was last book"
+    },
+    "backButton": {
+      "backMessage": "General page",
+      "backButton": "Back"
+    },
+    "navigationButtons": {
+      "next": "Next ➡️",
+      "previous": "⬅️ Previous"
+    }
+  },
+  "booksButton": {
+    "booksMessage": "Books",
+    "booksErrorMessage": "No books available",
+    "buttons": {
+      "allBooks": "All Books",
+      "myBooks": "My Books",
+      "buy": "Buy",
+      "viewInAllBooks": "In your books. View?",
+      "view": "View file",
+      "viewError": "No file available"
+    }
+  },
+  "authorsButton": {
+    "authorsMessage": "Authors",
+    "authorsListMessage": "List of available authors",
+    "authorsErrorMessage": "No authors available"
+  },
+  "financeButton": {
+    "financeMessage": "Finances",
+    "balanceMessage": "Your balance",
+    "rechargeLink": "Recharge link",
+    "rechargeSuccessText": "Your wallet is topped up",
+    "currency": "BIP",
+    "buttons": {
+      "wallet": "Wallet",
+      "rechargeBalance": "Recharge the Balance"
+    }
+  },
+  "aboutJointBook": "Description about JointBook",
+  "failText": "Something went wrong. Try later",
+  "paymentBookMessage": {
+    "book": "Book",
+    "author": "Author",
+    "cost": "Cost",
+    "failMessage": "Insufficient founds",
+    "success": "Success",
+    "thanksMessage": "Thank you for your purchase!",
+    "goToBoughtBooks": "Go to purchased books?",
+    "fail": "Fail",
+    "bookIsBought": "Book already purchased",
+    "confirm": "Confirm",
+    "errorRechargeMessageNoMoneyOnWallet": "There is currently no BIP on the main wallet. Our admin is already notified. Try later",
+    "alreadyExistUnPaidBill": "You already have an unpaid bill! Wait about 30 minutes"
+  }
+}

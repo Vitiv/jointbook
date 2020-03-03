@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
+
+    <title>Authors</title>
+</head>
+<body>
+<header>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <h5 class="my-0 mr-md-auto font-weight-normal">AdminPanel</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <!--            <a class="p-2 text-dark" href="/">Книги</a>-->
+            <a class="p-2 text-dark" href="index.html">Книги</a>
+            <!--            <a class="p-2 text-dark" href="/authors">Авторы</a>-->
+            <a class="p-2 text-dark" href="authors.html">Авторы</a>
+        </nav>
+        <a class="btn btn-outline-primary" href="/signIn/logout">Выход</a>
+    </div>
+</header>
+
+<main role="main">
+    <div class="container">
+        <div class="my-3 p-3 bg-white rounded shadow-sm">
+            <h6 class="border-bottom border-gray pb-2 mb-0">Добавление автора</h6>
+            <div class="pt-3">
+                <form class="needs-validation" novalidate action="/author" method="post">
+                    <label for="authorName">Имя автора</label>
+                    <input type="text" class="form-control" id="authorName" placeholder="Author Name" value="" required>
+                    <div class="invalid-feedback">
+                        Обязательное поле
+                    </div>
+                    <div class="pt-3">
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">
+                            Добавить
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <h6 class="border-bottom border-gray pb-2 mb-0 pt-4">Ранее добавленные авторы</h6>
+            <div class="media text-muted pt-3">
+                <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    <div class="d-flex justify-content-between align-items-center w-100">
+                        <strong class="text-dark" style="font-size: 16px">Author Name</strong>
+                        <div class="row">
+                            <form action="/authorId/books" method="post">
+                                <input type="hidden" name="_id" value="<%= post._id %>">
+                                <button class="btn btn-sm btn-outline-secondary ml-2" type="submit">
+                                    Посмотреть книги
+                                </button>
+                            </form>
+                            <form action="/authorId/addBook" method="post">
+                                <input type="hidden" name="_id" value="<%= post._id %>">
+                                <button class="btn btn-sm btn-outline-secondary ml-2" type="submit">
+                                    Добавить книгу
+                                </button>
+                            </form>
+                            <form action="/authorId/delete" method="post">
+                                <input type="hidden" name="_id" value="<%= post._id %>">
+                                <button class="btn btn-sm btn-outline-secondary ml-2" type="submit">
+                                    Удалить
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+                <%
+                const pageAmount = Math.ceil(amountPages)
+                let pagesArray = []
+                let edge = 1
+                if (pageAmount <= 7) {
+                while (edge <= pageAmount) {
+                pagesArray.push(edge)
+                edge++
+                }
+                } else if (page <= 4) {
+                while (edge <= 5) {
+                pagesArray.push(edge)
+                edge++
+                }
+                pagesArray.push('...')
+                pagesArray.push(pageAmount)
+                } else if (page <= pageAmount - 4) {
+                pagesArray.push(1)
+                pagesArray.push('...')
+                pagesArray.push(page - 1)
+                pagesArray.push(page)
+                pagesArray.push(page + 1)
+                pagesArray.push('...')
+                pagesArray.push(pageAmount)
+                } else {
+                pagesArray.push(1)
+                pagesArray.push('...')
+                edge = pageAmount - 4
+                while (edge <= pageAmount) {
+                pagesArray.push(edge)
+                edge++
+                }
+                }
+                pagesArray.forEach(locPage => {
+                if (locPage == page) { %>
+                <form action="/" method="get">
+                    <input type="hidden" name="page" value="<%= locPage %>">
+                    <button type="submit" class="btn btn-primary"><%= locPage %></button>
+                </form>
+                <% } else if (locPage === '...') { %>
+                <button type="submit" class="btn btn-secondary" disabled>...</button>
+                <% } else { %>
+                <form action="/" method="get">
+                    <input type="hidden" name="page" value="<%= locPage %>">
+                    <button type="submit" class="btn btn-secondary"><%= locPage %></button>
+                </form>
+                <% }
+                })%>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict'
+
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation')
+
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        }, false)
+    })()
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
