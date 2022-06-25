@@ -19,7 +19,7 @@
     "minterjs-tx": "^6.1.0",
     "minterjs-wallet": "^4.0.1",
     "multer": "^1.4.2",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.7",
     "path": "^0.12.7",
     "pg": "^7.12.1",
     "rlp": "^2.2.3",
